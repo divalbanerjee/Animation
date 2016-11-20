@@ -27,7 +27,11 @@ public class Button extends JPanel {
     int myButtonposx = 0;
     int mtButtonposy = 0;
 
-    public Button(Color backColor) {
+    public Button() {
+    }
+
+    public Button(Color backColor){
+
     }
 
     public void paintComponent(Graphics g) {
