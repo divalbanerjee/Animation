@@ -31,7 +31,6 @@ public class Button extends JPanel {
     }
 
     public Button(Color backColor){
-
     }
 
     public void paintComponent(Graphics g) {
