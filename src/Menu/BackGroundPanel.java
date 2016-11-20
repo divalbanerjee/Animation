@@ -213,6 +213,4 @@ public class BackGroundPanel extends JPanel {
         float y = (height - image.getHeight(null)) * alignmentY;
         g.drawImage(image, (int)x + insets.left, (int)y + insets.top, this);
     }
-
-
 }

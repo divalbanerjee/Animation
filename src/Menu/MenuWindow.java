@@ -3,7 +3,7 @@ package Menu;
 import javax.swing.*;
 import java.awt.*;
 import components.Button;
-
+import java.awt.Image;
 
 /**
  * Created by bandi on 11/19/2016.
@@ -18,10 +18,13 @@ public class MenuWindow extends JFrame {
     private Button btnScores = new Button(new Color(2,136,209), new Color(3,169,244), "View Scores");
     private Button btnExit = new Button(new Color(2,136,209), new Color(3,169,244), "Quit Game");
 
+    private BackGroundPanel backGround = new BackGroundPanel(,0); //scaled background
+
     private JLabel lblTitle = new JLabel("Elon Musk and the Quest for a Fantastic Future");
 
     public MenuWindow(){
         lblTitle.setFont(font30Pt);
+
 
     }
 }
