@@ -5,7 +5,7 @@ import java.awt.image.*;
 import javax.swing.*;
 
 /**
- * Created by bandi on 11/20/2016.
+ * Created by DIval Banerjee on 11/20/2016.
  */
 public class BackGroundPanel extends JPanel {
     public static final int SCALED = 0;
@@ -26,7 +26,7 @@ public class BackGroundPanel extends JPanel {
     public BackGroundPanel(Image image, int style) {
         setImage( image );
         setStyle( style );
-        setLayout( new BorderLayout() );
+        setLayout( new GridLayout(5,1) );
     }
 
 	//Set image as the backround with the specified style and alignment

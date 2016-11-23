@@ -56,7 +56,7 @@ public class Button extends JPanel {
         g.setFont(myFont);
 
         if(centered == true){
-            myHorizontalShift = (getWidth()/2) - myButtonWidth;
+            myHorizontalShift = (getWidth()- myButtonWidth)/2;
         }
             //padded rectangle drawn
             g.setColor(this.myPaddingColor);
@@ -68,7 +68,7 @@ public class Button extends JPanel {
 
             g.setColor(Color.white);
             //g.drawString(myButtonText,(int)(getWidth()/2-myButtonText.length()*myFont.getSize()/2), (int)(getHeight()/2*myFont.getSize()/2));
-            g.drawString(this.myButtonText, (myHorizontalShift+(this.myButtonWidth / 2)) - myFont.getSize(), myVerticalShift + 5 + this.myButtonHeight / 2);
+            g.drawString(this.myButtonText, (myHorizontalShift+(this.myButtonWidth / 2)) - (this.myButtonText.length()*5), myVerticalShift + 5 + this.myButtonHeight / 2);
 
     }
 
