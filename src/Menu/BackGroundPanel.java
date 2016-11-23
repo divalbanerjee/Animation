@@ -18,8 +18,6 @@ public class BackGroundPanel extends JPanel {
     private float alignmentX = 0.5f;
     private float alignmentY = 0.5f;
     private boolean isTransparentAdd = true;
-
-
      //Set image as the background with the SCALED style
          public BackGroundPanel(Image image) {
         this(image, SCALED);
@@ -66,7 +64,6 @@ public class BackGroundPanel extends JPanel {
         this.alignmentX = alignmentX > 1.0f ? 1.0f : alignmentX < 0.0f ? 0.0f : alignmentX;
         repaint();
     }
-
     //Specify the horizontal alignment of the image when using ACTUAL style
          public void setImageAlignmentY(float alignmentY) {
         this.alignmentY = alignmentY > 1.0f ? 1.0f : alignmentY < 0.0f ? 0.0f : alignmentY;
@@ -100,7 +97,6 @@ public class BackGroundPanel extends JPanel {
 
         super.add(component, constraints);
     }
-
     /*
      *  Controls whether components added to this panel should automatically
      *  be made transparent. That is, setOpaque(false) will be invoked.
@@ -110,7 +106,6 @@ public class BackGroundPanel extends JPanel {
     {
         this.isTransparentAdd = isTransparentAdd;
     }
-
     /*
      *	Try to make the component transparent.
      *  For components that use renderers, like JTable, you will also need to
@@ -171,16 +166,12 @@ public class BackGroundPanel extends JPanel {
                 drawScaled(g);
         }
     }
-
      // Custom painting code for drawing a SCALED image as the background
-
     private void drawScaled(Graphics g)
     {
         Dimension d = getSize();
         g.drawImage(image, 0, 0, d.width, d.height, null);
     }
-
-
      // Custom painting code for drawing TILED images as the background
 
     private void drawTiled(Graphics g)

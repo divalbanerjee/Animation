@@ -22,6 +22,8 @@ public class Button extends JPanel {
     private int myButtonWidth = 150;
     private int myVerticalShift = 0;
     private int myButtonHeight = 60;
+    private int myHorizontalShift = 20;
+    private boolean centered = false;
     private Color myPaddingColor = Color.darkGray;
     private Color myBackColor = Color.gray;
 
@@ -45,20 +47,29 @@ public class Button extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
+        g.setColor(new Color(100,100,100,0));
+        g.fillRect(0,0,getWidth(),getHeight());
+        System.out.println(getWidth());
+        System.out.println(getHeight());
+
         myVerticalShift = getHeight() / 2 - myButtonHeight / 2;
         g.setFont(myFont);
 
-        //padded rectangle drawn
-        g.setColor(new Color(144, 12, 63));
-        g.fillRoundRect(20 + this.myButtonPadding, myVerticalShift + this.myButtonPadding, this.myButtonWidth, this.myButtonHeight, 25, 25); //xpos, y pos, width, height
+        if(centered == true){
+            myHorizontalShift = (getWidth()/2) - myButtonWidth;
+        }
+            //padded rectangle drawn
+            g.setColor(this.myPaddingColor);
+            g.fillRoundRect(myHorizontalShift + this.myButtonPadding, myVerticalShift + this.myButtonPadding, this.myButtonWidth, this.myButtonHeight, 25, 25); //xpos, y pos, width, height
 
-        //padded
-        g.setColor(this.myBackColor);
-        g.fillRoundRect(20 + this.myPush, myVerticalShift + this.myPush, this.myButtonWidth, this.myButtonHeight, 25, 25); //xpos, y pos, width, height
+            //padded
+            g.setColor(this.myBackColor);
+            g.fillRoundRect(myHorizontalShift + this.myPush, myVerticalShift + this.myPush, this.myButtonWidth, this.myButtonHeight, 25, 25); //xpos, y pos, width, height
 
-        g.setColor(this.myPaddingColor);
-        //g.drawString(myButtonText,(int)(getWidth()/2-myButtonText.length()*myFont.getSize()/2), (int)(getHeight()/2*myFont.getSize()/2));
-        g.drawString(this.myButtonText, -30 + this.myButtonWidth / 2, myVerticalShift + 5 + this.myButtonHeight / 2);
+            g.setColor(Color.white);
+            //g.drawString(myButtonText,(int)(getWidth()/2-myButtonText.length()*myFont.getSize()/2), (int)(getHeight()/2*myFont.getSize()/2));
+            g.drawString(this.myButtonText, (myHorizontalShift+(this.myButtonWidth / 2)) - myFont.getSize(), myVerticalShift + 5 + this.myButtonHeight / 2);
+
     }
 
     public void setFont(Font font) {
@@ -76,6 +87,14 @@ public class Button extends JPanel {
     public void setPaddingColor(Color paddingColor) {
         this.myPaddingColor = paddingColor;
     } //change padding color of button
+
+    public void setCenter(boolean center){
+        this.centered = center;
+    }
+
+    public void setButtonWidth(int length){
+        this.myButtonWidth = length;
+    }
 
     public void setBackColor(Color backColor){
         this.myBackColor = backColor;
