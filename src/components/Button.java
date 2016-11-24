@@ -1,11 +1,9 @@
 package components;
-
 /*
  * Created by Dival Banerjee on 11/19/2016.
  * Custom Button Component for Java GUI
  * Looks better than the JButton class
  */
-
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -26,11 +24,7 @@ public class Button extends JPanel {
     private boolean centered = false;
     private Color myPaddingColor = Color.darkGray;
     private Color myBackColor = Color.gray;
-
     int myPush = 0;
-    int myButtonposx = 0;
-    int mtButtonposy = 0;
-
     public Button() {
     }
 

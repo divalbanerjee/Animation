@@ -19,18 +19,18 @@ import java.io.IOException;
 public class MenuWindow extends JFrame {
 
     //Fonts
-    private Font font30Pt = new Font("Helvetica",Font.PLAIN, 30);
+        private Font font30Pt = new Font("Helvetica",Font.PLAIN, 30);
     private Font font20Pt = new Font("Helvetica" , Font.PLAIN, 20);
     //Buttons
     private Button btnPlay = new Button(new Color(3,169,244), new Color(2,136, 209), "Play");
     private Button btnScores = new Button(new Color(3,169,244), new Color(2,136, 209), "View Scores");
     private Button btnExit = new Button(new Color(3,169,244), new Color(2,136,209), "Quit Game");
     BufferedImage imgBackground; // background image
-
+    Container container;
     private JLabel lblTitle = new JLabel("Elon Musk and the Quest for a Fantastic Future"); //title
 
     public MenuWindow() {
-        Container container = getContentPane();
+        container = getContentPane();
         //scaled background
         //Open the background image
         try {
@@ -38,6 +38,13 @@ public class MenuWindow extends JFrame {
             BackGroundPanel backGround = new BackGroundPanel(imgBackground, 0);
 
             configureUI(); //sets up fonts, colors, layouts for components
+
+            btnPlay.addMouseListener(new btnPlayListener());
+
+            btnScores.addMouseListener(new btnScoresListener());
+
+            btnExit.addMouseListener(new btnExitListener());
+
             backGround.add(lblTitle);
             backGround.add(btnPlay);
             backGround.add(btnScores);
@@ -52,19 +59,15 @@ public class MenuWindow extends JFrame {
         }
     }
 
-        //container.add(btnPlay);
         public void configureUI(){
             btnPlay.setCenter(true);
             btnPlay.setButtonWidth(300);
-            btnPlay.addMouseListener(new btnPlayListener());
 
             btnScores.setButtonWidth(300);
             btnScores.setCenter(true);
-            btnScores.addMouseListener(new btnScoresListener());
 
             btnExit.setCenter(true);
             btnExit.setButtonWidth(300);
-            btnExit.addMouseListener(new btnExitListener());
 
             lblTitle.setForeground(Color.white);
             lblTitle.setFont(font30Pt);
@@ -73,21 +76,24 @@ public class MenuWindow extends JFrame {
         }
 
     public class btnPlayListener extends MouseAdapter{
-        public void MousePressed(MouseEvent e){
+        public void mousePressed(MouseEvent e){
             btnPlay.push(true);
-            //Switch to game window
+            //remove the previous game window
+            container.removeAll();
+            //add a new game window
+            container.setBackground(Color.black);
+            container.add(new Game.GameWindow());
+
         }
     }
-
     public class btnScoresListener extends MouseAdapter{
-        public void MousePressed(MouseEvent e){
+        public void mousePressed(MouseEvent e){
             btnScores.push(true);
             //Switch to scores window
         }
     }
-
     public class btnExitListener extends MouseAdapter{
-        public void MousePressed(MouseEvent e){
+        public void mousePressed(MouseEvent e){
             btnExit.push(true);
             //Close the game
             System.exit(0);
